@@ -49,7 +49,7 @@ class MWRowCell: UITableViewCell {
         view.delegate = self
         view.dataSource = self
 
-        view.register(MWMovieCell.self, forCellWithReuseIdentifier: MWMovieCell.reuseIdentifier)
+        view.register(MWMainMovieCell.self, forCellWithReuseIdentifier: MWMainMovieCell.reuseIdentifier)
 
         return view
     }()
@@ -109,7 +109,7 @@ extension MWRowCell: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MWMovieCell.reuseIdentifier, for: indexPath) as? MWMovieCell ?? MWMovieCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MWMainMovieCell.reuseIdentifier, for: indexPath) as? MWMainMovieCell ?? MWMainMovieCell()
         cell.set(movie: self.movies[indexPath.row])
 
         return cell
