@@ -9,6 +9,10 @@ import UIKit
 
 class MWMoviesController: MWViewController {
 
+    private let cellsPerRow: CGFloat = 3
+        private let contentInset = UIEdgeInsets(all: 5)
+        private let spaceBetweenCells: CGFloat = 20
+
     private let imageUrls: [String] = [
         "https://s3-eu-west-1.amazonaws.com/uploads.playbaamboozle.com/uploads/images/54999/1596449750_6002",
         "https://s3-eu-west-1.amazonaws.com/uploads.playbaamboozle.com/uploads/images/54999/1596449786_10224",
@@ -40,6 +44,7 @@ class MWMoviesController: MWViewController {
     private lazy var collectionLayout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
+        layout.estimatedItemSize = .zero
 
         return layout
     }()
@@ -62,6 +67,7 @@ class MWMoviesController: MWViewController {
         super.initController()
 
         self.controllerTitle = "Movies"
+        self.setContentScrolling(isEnabled: false)
         self.mainView.addSubview(self.collectionView)
         self.collectionView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
@@ -90,9 +96,8 @@ extension MWMoviesController: UICollectionViewDelegate, UICollectionViewDataSour
 }
 extension MWMoviesController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //return CGSize(width: 115, height: 115)
-        let availableCollectionWidth = collectionView.bounds.width - 10
-        let width = collectionView.bounds.width - 5
+        let availableWidth = collectionView.bounds.width - self.contentInset.left - self.contentInset.right
+        let width = ((availableWidth - self.spaceBetweenCells * (self.cellsPerRow - 1)) / self.cellsPerRow)
         return CGSize(width: width, height: width * 2)
 
     }

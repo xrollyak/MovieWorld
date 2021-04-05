@@ -10,7 +10,7 @@ import UIKit
 class MWMovieCellCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier: String = "MWMovieCellCollectionViewCell"
 
-    private let edgeInsets = UIEdgeInsets(top: 6, left: 10, bottom: 0, right: 10)
+    private let edgeInsets = UIEdgeInsets(top: 6, left: 10, bottom: 5, right: 10)
 
     //MARK: - qui variable
 
@@ -69,8 +69,8 @@ class MWMovieCellCollectionViewCell: UICollectionViewCell {
             make.left.right.equalToSuperview().inset(self.edgeInsets)
         }
 
-        self.titleLabel.snp.updateConstraints { (make) in
-            make.top.equalTo(self.imageView.snp.bottom).inset(self.edgeInsets.top)
+        self.dateLabel.snp.updateConstraints { (make) in
+            make.top.equalTo(self.titleLabel.snp.bottom).inset(self.edgeInsets.top)
             make.left.right.bottom.equalToSuperview().inset(self.edgeInsets)
 
         }
