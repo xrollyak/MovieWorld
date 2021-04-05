@@ -20,6 +20,7 @@
 		03C41DF82615FD6C0055D985 /* MWMoviesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C41DF72615FD6C0055D985 /* MWMoviesController.swift */; };
 		03C41E1326163FCA0055D985 /* MWMovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C41E1226163FCA0055D985 /* MWMovieModel.swift */; };
 		03C41E1726163FEE0055D985 /* Date+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C41E1626163FEE0055D985 /* Date+Ex.swift */; };
+		03E0A8322616495C00BD04B4 /* MWMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E0A8312616495C00BD04B4 /* MWMovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		03C41DF72615FD6C0055D985 /* MWMoviesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWMoviesController.swift; sourceTree = "<group>"; };
 		03C41E1226163FCA0055D985 /* MWMovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWMovieModel.swift; sourceTree = "<group>"; };
 		03C41E1626163FEE0055D985 /* Date+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ex.swift"; sourceTree = "<group>"; };
+		03E0A8312616495C00BD04B4 /* MWMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWMovieCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 		03C41DF52615FD510055D985 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				03E0A82F2616491200BD04B4 /* Views */,
 				03C41E0F26163FA00055D985 /* Models */,
 				03C41DF62615FD5F0055D985 /* Controllers */,
 			);
@@ -181,6 +184,22 @@
 				03C41E1226163FCA0055D985 /* MWMovieModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		03E0A82F2616491200BD04B4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				03E0A8302616491C00BD04B4 /* Cell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		03E0A8302616491C00BD04B4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				03E0A8312616495C00BD04B4 /* MWMovieCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +280,7 @@
 			files = (
 				03C41DF82615FD6C0055D985 /* MWMoviesController.swift in Sources */,
 				03C41DBD2615DBFC0055D985 /* MWViewController.swift in Sources */,
+				03E0A8322616495C00BD04B4 /* MWMovieCell.swift in Sources */,
 				03C41E1326163FCA0055D985 /* MWMovieModel.swift in Sources */,
 				03C41E1726163FEE0055D985 /* Date+Ex.swift in Sources */,
 				03C41DE12615E13B0055D985 /* UIEdgeInsets+Ex.swift in Sources */,
@@ -406,6 +426,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KG39R2KX5K;
 				INFOPLIST_FILE = MovieWorld/Info.plist;
@@ -415,6 +436,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = by.korneyeva.MovieWorld;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -425,6 +447,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KG39R2KX5K;
 				INFOPLIST_FILE = MovieWorld/Info.plist;
@@ -434,6 +457,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = by.korneyeva.MovieWorld;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
