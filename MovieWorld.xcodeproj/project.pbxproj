@@ -20,12 +20,17 @@
 		03C41DF82615FD6C0055D985 /* MWMoviesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C41DF72615FD6C0055D985 /* MWMoviesController.swift */; };
 		03C41E1326163FCA0055D985 /* MWMovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C41E1226163FCA0055D985 /* MWMovieModel.swift */; };
 		03C41E1726163FEE0055D985 /* Date+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C41E1626163FEE0055D985 /* Date+Ex.swift */; };
+		03E0A8322616495C00BD04B4 /* MWMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E0A8312616495C00BD04B4 /* MWMovieCell.swift */; };
 		03E0A839261B476000BD04B4 /* MWMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E0A838261B476000BD04B4 /* MWMainTabBarController.swift */; };
 		03E0A83F261B47BE00BD04B4 /* MWMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E0A83E261B47BE00BD04B4 /* MWMainViewController.swift */; };
 		03E0A844261B482C00BD04B4 /* MWRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E0A843261B482C00BD04B4 /* MWRowCell.swift */; };
 		03E0A847261B484800BD04B4 /* MWMainMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E0A846261B484800BD04B4 /* MWMainMovieCell.swift */; };
 		03E0A84A261B486000BD04B4 /* MWMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E0A849261B486000BD04B4 /* MWMovie.swift */; };
-		03E0A8322616495C00BD04B4 /* MWMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E0A8312616495C00BD04B4 /* MWMovieCell.swift */; };
+		03E0A877261B809400BD04B4 /* MWPopularMoviesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E0A876261B809400BD04B4 /* MWPopularMoviesResponse.swift */; };
+		03E0A87B261B816800BD04B4 /* MWNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E0A87A261B816800BD04B4 /* MWNetwork.swift */; };
+		03E0A87E261B858A00BD04B4 /* Url+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E0A87D261B858A00BD04B4 /* Url+Ex.swift */; };
+		03E0A881261B91E800BD04B4 /* MWUrlPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E0A880261B91E800BD04B4 /* MWUrlPaths.swift */; };
+		03E0A884261B941C00BD04B4 /* MWUpcomingResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E0A883261B941C00BD04B4 /* MWUpcomingResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,12 +48,17 @@
 		03C41DF72615FD6C0055D985 /* MWMoviesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWMoviesController.swift; sourceTree = "<group>"; };
 		03C41E1226163FCA0055D985 /* MWMovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWMovieModel.swift; sourceTree = "<group>"; };
 		03C41E1626163FEE0055D985 /* Date+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ex.swift"; sourceTree = "<group>"; };
+		03E0A8312616495C00BD04B4 /* MWMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWMovieCell.swift; sourceTree = "<group>"; };
 		03E0A838261B476000BD04B4 /* MWMainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWMainTabBarController.swift; sourceTree = "<group>"; };
 		03E0A83E261B47BE00BD04B4 /* MWMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWMainViewController.swift; sourceTree = "<group>"; };
 		03E0A843261B482C00BD04B4 /* MWRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWRowCell.swift; sourceTree = "<group>"; };
 		03E0A846261B484800BD04B4 /* MWMainMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWMainMovieCell.swift; sourceTree = "<group>"; };
 		03E0A849261B486000BD04B4 /* MWMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWMovie.swift; sourceTree = "<group>"; };
-		03E0A8312616495C00BD04B4 /* MWMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWMovieCell.swift; sourceTree = "<group>"; };
+		03E0A876261B809400BD04B4 /* MWPopularMoviesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWPopularMoviesResponse.swift; sourceTree = "<group>"; };
+		03E0A87A261B816800BD04B4 /* MWNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWNetwork.swift; sourceTree = "<group>"; };
+		03E0A87D261B858A00BD04B4 /* Url+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Url+Ex.swift"; sourceTree = "<group>"; };
+		03E0A880261B91E800BD04B4 /* MWUrlPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWUrlPaths.swift; sourceTree = "<group>"; };
+		03E0A883261B941C00BD04B4 /* MWUpcomingResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWUpcomingResponseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				03C41DDD2615E10E0055D985 /* UIView+Ex.swift */,
+				03E0A87D261B858A00BD04B4 /* Url+Ex.swift */,
 				03C41DE02615E13B0055D985 /* UIEdgeInsets+Ex.swift */,
 				03C41E1626163FEE0055D985 /* Date+Ex.swift */,
 			);
@@ -115,6 +126,7 @@
 		03C41DD52615DE2D0055D985 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				03E0A879261B813100BD04B4 /* Network */,
 				03C41DE32615E1AA0055D985 /* Navigation */,
 				03C41DD72615DE3A0055D985 /* Views */,
 				03C41DD62615DE350055D985 /* Controllers */,
@@ -198,6 +210,22 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		03E0A82F2616491200BD04B4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				03E0A8302616491C00BD04B4 /* Cell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		03E0A8302616491C00BD04B4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				03E0A8312616495C00BD04B4 /* MWMovieCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		03E0A83B261B47A400BD04B4 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				03E0A849261B486000BD04B4 /* MWMovie.swift */,
+				03E0A876261B809400BD04B4 /* MWPopularMoviesResponse.swift */,
+				03E0A883261B941C00BD04B4 /* MWUpcomingResponseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -233,20 +263,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		03E0A82F2616491200BD04B4 /* Views */ = {
+		03E0A879261B813100BD04B4 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				03E0A8302616491C00BD04B4 /* Cell */,
+				03E0A87A261B816800BD04B4 /* MWNetwork.swift */,
+				03E0A880261B91E800BD04B4 /* MWUrlPaths.swift */,
 			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		03E0A8302616491C00BD04B4 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				03E0A8312616495C00BD04B4 /* MWMovieCell.swift */,
-			);
-			path = Cell;
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,15 +349,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				03C41DF82615FD6C0055D985 /* MWMoviesController.swift in Sources */,
+				03E0A877261B809400BD04B4 /* MWPopularMoviesResponse.swift in Sources */,
+				03E0A87B261B816800BD04B4 /* MWNetwork.swift in Sources */,
+				03E0A881261B91E800BD04B4 /* MWUrlPaths.swift in Sources */,
 				03C41DBD2615DBFC0055D985 /* MWViewController.swift in Sources */,
 				03E0A8322616495C00BD04B4 /* MWMovieCell.swift in Sources */,
 				03C41E1326163FCA0055D985 /* MWMovieModel.swift in Sources */,
 				03E0A83F261B47BE00BD04B4 /* MWMainViewController.swift in Sources */,
 				03E0A84A261B486000BD04B4 /* MWMovie.swift in Sources */,
 				03E0A847261B484800BD04B4 /* MWMainMovieCell.swift in Sources */,
+				03E0A884261B941C00BD04B4 /* MWUpcomingResponseModel.swift in Sources */,
 				03C41E1726163FEE0055D985 /* Date+Ex.swift in Sources */,
 				03C41DE12615E13B0055D985 /* UIEdgeInsets+Ex.swift in Sources */,
 				03C41DB92615DBFC0055D985 /* AppDelegate.swift in Sources */,
+				03E0A87E261B858A00BD04B4 /* Url+Ex.swift in Sources */,
 				03E0A839261B476000BD04B4 /* MWMainTabBarController.swift in Sources */,
 				03C41DE82615F0CD0055D985 /* MWInterface.swift in Sources */,
 				03C41DEF2615FAE10055D985 /* MWInitViewController.swift in Sources */,
