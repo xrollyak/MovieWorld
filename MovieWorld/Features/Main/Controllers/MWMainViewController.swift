@@ -11,6 +11,8 @@ class MWMainViewController: MWViewController {
 
     enum MovieCategory: String {
         case popular = "Popular"
+        case upcoming = "Upcoming"
+        case topRated = "Top Rated"
     }
 
     private var movies: [MovieCategory: [MWMovie]] = [:]
@@ -48,10 +50,88 @@ class MWMainViewController: MWViewController {
         self.tableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
+        self.sendPopularRequest()
+        self.sendUpcomingMovieRequest()
+        self.sendTopRatedMovieRequest()
     }
 
     @objc private func refreshPulled() {
-        // refresh logic
+        self.sendPopularRequest()
+        self.sendUpcomingMovieRequest()
+        self.sendTopRatedMovieRequest()
+    }
+
+    private func sendTopRatedMovieRequest() {
+        MWNetwork.sh.request(urlPath: MWURLPaths.topRatedMovies) { [weak self] (topRatedMovies: MWTopRatedMovies) in
+            guard let self = self else { return }
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
+            self.movies[.topRated] = topRatedMovies.results
+            self.tableView.reloadData()
+
+            topRatedMovies.results.forEach {
+                Swift.debugPrint("id: \($0.id)")
+                Swift.debugPrint($0.title)
+                Swift.debugPrint($0.overview ?? "haven't overview")
+
+            }
+        } errorHandler: {
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
+            print("error")
+        }
+
+    }
+
+    private func sendUpcomingMovieRequest() {
+        MWNetwork.sh.request(urlPath: MWURLPaths.upcomingMovies) { [weak self] (upcomingMovieModel: MWUpcomingMovies) in
+            guard let self = self else { return }
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
+            self.movies[.upcoming] = upcomingMovieModel.results
+            self.tableView.reloadData()
+
+            upcomingMovieModel.results.forEach {
+                Swift.debugPrint("id: \($0.id)")
+                Swift.debugPrint($0.title)
+                Swift.debugPrint($0.overview ?? "haven't overview")
+                
+            }
+        } errorHandler: {
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
+            print("error")
+        }
+
+    }
+
+    private func sendPopularRequest() {
+        MWNetwork.sh.request(urlPath: MWURLPaths.popularMovies) { [weak self](popularMovieModel: MWPopularMoviesResponce) in
+            guard let self = self else { return }
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
+            self.movies[.popular] = popularMovieModel.results
+            
+            self.tableView.reloadData()
+
+            popularMovieModel.results.forEach {
+                        Swift.debugPrint("id: \($0.id)")
+                        Swift.debugPrint($0.title)
+                        Swift.debugPrint($0.overview ?? "No overview")
+                    }
+        } errorHandler: {
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
+            print("error")
+        }
+
+
     }
 
 }
