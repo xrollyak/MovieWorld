@@ -51,72 +51,81 @@ class MWMainViewController: MWViewController {
             make.edges.equalToSuperview()
         }
 
-        self.sendPopularRequest()
+        self.sendPopularMoviesRequest()
         self.sendUpcomingRequest()
         self.sendTopRatedRequest()
     }
 
     @objc private func refreshPulled() {
-        self.sendPopularRequest()
+        self.sendPopularMoviesRequest()
+        self.sendUpcomingRequest()
+        self.sendTopRatedRequest()
     }
 
+    // MARK: - requests
+
     private func sendUpcomingRequest() {
-        MWNetwork.sh.request(urlPath: MWUrlPaths.upcomingMovies) { [weak self] (upcomingMoviesModel: MWUpcomingResponseModel) in
-            guard let self = self else { return }
-            if self.refreshControl.isRefreshing {
-                self.refreshControl.endRefreshing()
-            }
+        MWNetwork.sh.requestAlamofire(urlPath: MWUrlPaths.upcomingMovies) { [weak self] (upcomingMoviesModel: MWUpcomingResponseModel) in
+            self?.handleResponse(for: .upcoming, movies: upcomingMoviesModel.results)
 
-            self.movies[.upcoming] = upcomingMoviesModel.results
-            self.tableView.reloadData()
-
-        } errorHandler: {
-            if self.refreshControl.isRefreshing {
-                self.refreshControl.endRefreshing()
-            }
-
-            print("errorHandler")
-            // TODO: - show alert controller
+        } errorHandler: { [weak self] (error: MWNetError) in
+            self?.handleError(error: error)
         }
     }
 
     private func sendTopRatedRequest() {
-        MWNetwork.sh.request(urlPath: MWUrlPaths.topRatedMovies) { [weak self] (topRatedMoviesModel: MWTopRatedReponseModel) in
-            guard let self = self else { return }
-            if self.refreshControl.isRefreshing {
-                self.refreshControl.endRefreshing()
-            }
-
-            self.movies[.topRated] = topRatedMoviesModel.results
-            self.tableView.reloadData()
-        } errorHandler: {
-            if self.refreshControl.isRefreshing {
-                self.refreshControl.endRefreshing()
-            }
-
-            print("errorHandler")
-            // TODO: - show alert controller
+        MWNetwork.sh.requestAlamofire(urlPath: MWUrlPaths.topRatedMovies) { [weak self] (topRatedMoviesModel: MWTopRatedReponseModel) in
+            self?.handleResponse(for: .topRated, movies: topRatedMoviesModel.results)
+        } errorHandler: { [weak self] (error: MWNetError) in
+            self?.handleError(error: error)
         }
     }
 
-    private func sendPopularRequest() {
-        MWNetwork.sh.request(urlPath: MWUrlPaths.popularMovies) { [weak self] (popularMoviesModel: MWPopularMoviesResponse) in
-            guard let self = self else { return }
-            if self.refreshControl.isRefreshing {
-                self.refreshControl.endRefreshing()
-            }
+    private func sendPopularMoviesRequest() {
+        MWNet.sh.requestAlamofire(
+            urlPath: MWUrlPaths.popularMovies,
+            parameters: nil,
+            okHandler: { [weak self] (model: MWPopularMovieResponse) in
+                self?.handleResponse(for: .popular, movies: model.results)
+            },
+            errorHandler: { [weak self] (error: MWNetError) in
+                self?.handleError(error: error)
+            })
+    }
 
-            self.movies[.popular] = popularMoviesModel.results
+    // MARK: - handling responses
 
-            self.tableView.reloadData()
-        } errorHandler: {
-            if self.refreshControl.isRefreshing {
-                self.refreshControl.endRefreshing()
-            }
-
-            print("errorHandler")
-            // TODO: - show alert controller
+    private func handleResponse(for category: MovieCategory, movies: [MWMovie]) {
+        if self.refreshControl.isRefreshing {
+            self.refreshControl.endRefreshing()
         }
+
+        self.movies[category] = movies
+
+        self.tableView.reloadData()
+    }
+
+    private func handleError(error: MWNetError) {
+        if self.refreshControl.isRefreshing {
+            self.refreshControl.endRefreshing()
+        }
+
+        let title: String = "Error"
+        var message: String = "Something went wrong!"
+        switch error {
+        case .incorrectUrl:
+            message = "Incorrect URL"
+        case .networkError(let error):
+            message = error.localizedDescription
+        default:
+            break
+        }
+
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert)
+        self.present(alert, animated: true)
     }
 
 }

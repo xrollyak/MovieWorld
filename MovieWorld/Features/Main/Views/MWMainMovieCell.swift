@@ -12,6 +12,8 @@ class MWMainMovieCell: UICollectionViewCell {
 
     static let reuseIdentifier: String = "MWMovieCell"
 
+    private var imageDataTask: URLSessionDataTask?
+
     private let imageSize = CGSize(width: 130, height: 185)
 
     private lazy var logoView: UIImageView = {
@@ -70,11 +72,30 @@ class MWMainMovieCell: UICollectionViewCell {
         super.updateConstraints()
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        self.imageDataTask?.cancel()
+    }
+
     func set(movie: MWMovie) {
         self.logoView.image = UIImage(named: "movieStub")
         self.titleLabel.text = movie.title
         self.descriptionLabel.text = movie.overview
 
+        if let poster = movie.posterPath {
+            self.loadImage(posterPath: poster)
+        }
+
         self.setNeedsUpdateConstraints()
+    }
+
+    private func loadImage(posterPath: String) {
+        self.imageDataTask = MWNetwork.sh.requestImage(posterPath: posterPath) { [weak self] (image) in
+            self?.imageDataTask = nil
+            if let image = image {
+                self?.logoView.image = image
+            }
+        }
     }
 }

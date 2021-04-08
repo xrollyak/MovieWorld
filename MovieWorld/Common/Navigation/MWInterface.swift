@@ -15,7 +15,7 @@ class MWInterface {
 
     weak var window: UIWindow?
 
-    private var currentNavController: UINavigationController {
+    var currentNavController: UINavigationController {
         (self.tabBarController.selectedViewController as? UINavigationController) ?? self.navController
     }
 

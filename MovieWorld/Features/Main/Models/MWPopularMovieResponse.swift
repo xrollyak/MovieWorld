@@ -1,5 +1,5 @@
 //
-//  MWPopularMoviesResponse.swift
+//  MWPopularMovieResponse.swift
 //  MovieWorld
 //
 //  Created by Анастасия Корнеева on 5.04.21.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct MWPopularMoviesResponse: Decodable {
+struct MWPopularMovieResponse: Decodable {
     let page: Int
-    let results: [MWMovie]
     let total_results: Int
     let total_pages: Int
+    let results: [MWMovie]
 }
