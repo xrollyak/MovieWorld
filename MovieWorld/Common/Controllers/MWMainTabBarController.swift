@@ -21,6 +21,10 @@ class MWMainTabBarController: UITabBarController {
                                                        image: UIImage(systemName: "film"),
                                                        selectedImage: UIImage(systemName: "film.fill"))
 
+    private lazy var favouritesTabBarItem = UITabBarItem(title: "Favourites",
+                                                     image: UIImage(systemName: "heart"),
+                                                     selectedImage: UIImage(systemName: "heart.fill"))
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +41,13 @@ class MWMainTabBarController: UITabBarController {
         let moviesController = MWMoviesController()
         moviesController.tabBarItem = self.moviesTabBarItem
 
-        let controllers = [mainController, moviesController]
+        let favouritesController = MWFavouriteViewController()
+        favouritesController.tabBarItem = self.favouritesTabBarItem
+        favouritesController.requestRandomMovie = {
+            return mainController.movies[.popular]?.randomElement()
+        }
+
+        let controllers = [mainController, moviesController, favouritesController]
         self.viewControllers = controllers.map { UINavigationController(rootViewController: $0) }
     }
 

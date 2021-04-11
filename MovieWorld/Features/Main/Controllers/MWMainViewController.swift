@@ -15,7 +15,7 @@ class MWMainViewController: MWViewController {
         case topRated = "Top Rated"
     }
 
-    private var movies: [MovieCategory: [MWMovie]] = [:]
+    private(set) var movies: [MovieCategory: [MWMovie]] = [:]
 
     private lazy var dispatchGroup = DispatchGroup()
 
@@ -77,7 +77,7 @@ class MWMainViewController: MWViewController {
     private func sendUpcomingRequest() {
         self.dispatchGroup.enter()
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             MWNetwork.sh.requestAlamofire(urlPath: MWUrlPaths.upcomingMovies) { [weak self] (upcomingMoviesModel: MWUpcomingResponseModel) in
                 self?.handleResponse(for: .upcoming, movies: upcomingMoviesModel.results)
 
@@ -90,7 +90,7 @@ class MWMainViewController: MWViewController {
     private func sendTopRatedRequest() {
         self.dispatchGroup.enter()
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             MWNetwork.sh.requestAlamofire(urlPath: MWUrlPaths.topRatedMovies) { [weak self] (topRatedMoviesModel: MWTopRatedReponseModel) in
                 self?.handleResponse(for: .topRated, movies: topRatedMoviesModel.results)
             } errorHandler: { [weak self] (error: MWNetError) in
@@ -102,7 +102,7 @@ class MWMainViewController: MWViewController {
     private func sendPopularMoviesRequest() {
         self.dispatchGroup.enter()
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             MWNet.sh.requestAlamofire(
                 urlPath: MWUrlPaths.popularMovies,
                 parameters: nil,
@@ -151,7 +151,6 @@ class MWMainViewController: MWViewController {
             preferredStyle: .alert)
         self.present(alert, animated: true)
     }
-
 }
 
 extension MWMainViewController: UITableViewDelegate, UITableViewDataSource {
