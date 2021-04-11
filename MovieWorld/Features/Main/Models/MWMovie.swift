@@ -42,7 +42,7 @@ class MWMovie: Decodable {
         self.popularity = try container.decode(Double.self, forKey: .popularity)
         self.adult = try container.decode(Bool.self, forKey: .adult)
         self.genreIds = try container.decodeIfPresent([Int].self, forKey: .genreIds)
-        self.releaseDate = try container.decodeIfPresent(String.self, forKey: .releaseDate)
+        self.releaseDate = (try? container.decodeIfPresent(String.self, forKey: .releaseDate)) ?? "02.02.2021"
         self.posterPath = try container.decodeIfPresent(String.self, forKey: .posterPath)
         self.overview = try container.decodeIfPresent(String.self, forKey: .overview)
     }

@@ -93,6 +93,7 @@ class MWMainMovieCell: UICollectionViewCell {
     private func loadImage(posterPath: String) {
         self.imageDataTask = MWNetwork.sh.requestImage(posterPath: posterPath) { [weak self] (image) in
             self?.imageDataTask = nil
+
             if let image = image {
                 self?.logoView.image = image
             }
